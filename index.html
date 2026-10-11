@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#100f12">
+<meta name="description" content="Miss Latofat uchun maxsus interaktiv taklifnoma">
+<title>Miss Latofat — A special evening</title>
+<style>
+:root{--bg:#100f12;--gold:#e0c080;--cream:#f7eee0;--muted:#c2b5c2;--rose:#c88498;--line:rgba(224,192,128,.32)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:radial-gradient(ellipse at 50% -10%,#49303c 0,#19151b 38%,#100f12 76%);color:var(--cream);font-family:Georgia,'Times New Roman',serif}
+body{min-height:100svh;display:grid;place-items:center;padding:18px;overflow-x:hidden}
+.card{width:min(100%,470px);min-height:660px;position:relative;overflow:hidden;border:1px solid rgba(224,192,128,.5);border-radius:28px;padding:clamp(22px,6vw,38px);background:linear-gradient(150deg,rgba(39,30,39,.97),rgba(16,15,18,.98));box-shadow:0 28px 100px #0009}
+.card:before,.card:after{content:"✦";position:absolute;color:rgba(224,192,128,.17);font-size:86px;pointer-events:none}
+.card:before{top:8px;right:17px}.card:after{bottom:0;left:14px;font-size:57px}
+.header{display:flex;justify-content:space-between;align-items:center;color:var(--gold);font:9px Arial,sans-serif;letter-spacing:2.5px;text-transform:uppercase;position:relative;z-index:2}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:19px 0 22px;position:relative;z-index:2}
+.scene{display:none;position:relative;z-index:2;animation:rise .45s ease both}
+.scene.active{display:flex;min-height:535px;flex-direction:column;justify-content:center}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.kicker{text-align:center;color:var(--gold);font:9px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;margin:0 0 19px}
+h1,h2{font-weight:normal;text-align:center;line-height:1.12;margin:0 0 18px}
+h1{font-size:clamp(39px,10vw,54px)}h2{font-size:clamp(30px,8vw,40px)}
+p{font-size:15px;line-height:1.8;color:#d3c6d1;text-align:center;max-width:345px;margin:0 auto 22px}
+.symbol{text-align:center;color:var(--gold);font-size:25px;letter-spacing:9px;margin:8px 0 22px}
+.btns{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;min-height:52px;margin-top:3px}
+button{font-family:Arial,sans-serif;font-size:12px;letter-spacing:.25px;border-radius:999px;padding:14px 18px;border:1px solid var(--gold);cursor:pointer;transition:transform .18s,background .18s}
+button:active{transform:scale(.98)}
+.primary{background:var(--gold);color:#211820;font-weight:bold}
+.secondary{background:transparent;color:var(--cream)}
+.foot{font:9px Arial,sans-serif;letter-spacing:2px;text-align:center;color:#9d8d9e;margin-top:25px}
+.tiny{text-align:center;color:#9f8f9e;font:11px Arial,sans-serif;line-height:1.7;margin-top:17px}
+.info{border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin:7px 0;background:#ffffff04}
+.info .label{font:9px Arial,sans-serif;letter-spacing:2px;color:var(--gold);margin-bottom:6px}
+.info .value{font:14px Arial,sans-serif;line-height:1.55;color:var(--cream)}
+#noBtn{position:relative}
+.heart{color:var(--rose);font-size:20px}
+.progress{display:flex;justify-content:center;gap:6px;margin-top:19px}
+.dot{width:5px;height:5px;border-radius:50%;background:#665664}
+.dot.on{background:var(--gold);width:18px;border-radius:9px}
+@media(max-height:760px){.card{min-height:0}.scene.active{min-height:500px}}
+@media(max-width:380px){body{padding:10px}.card{padding:23px 18px}.scene.active{min-height:510px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="header"><span>A private invitation</span><span>18 · X · 26</span></div>
+  <div class="rule"></div>
+
+  <section class="scene active" id="s1">
+    <p class="kicker">Bir kichik sir bor...</p>
+    <div class="symbol">✦　✧　<span class="heart">♥</span>　✧　✦</div>
+    <h1>Miss Latofat</h1>
+    <p>Bugun siz uchun kichik bir taklif tayyorladim. Shoshilmay, sahifalarni birma-bir oching.</p>
+    <div class="btns"><button class="primary" onclick="go(2)">Boshlaymizmi?</button></div>
+    <div class="tiny">Faqat siz uchun tayyorlandi.</div>
+    <div class="foot">01 / 08</div>
+  </section>
+
+  <section class="scene" id="s2">
+    <p class="kicker">Sahifa 02 · Bir savol</p>
+    <div class="symbol">✧</div>
+    <h2>Ba’zan eng chiroyli reja...</h2>
+    <p>katta narsalardan emas, yaxshi inson bilan o‘tkazilgan oddiy oqshomdan boshlanadi.</p>
+    <div class="btns"><button class="primary" onclick="go(3)">Davom etamiz</button></div>
+    <div class="foot">02 / 08</div>
+  </section>
+
+  <section class="scene" id="s3">
+    <p class="kicker">Sahifa 03 · Taklif</p>
+    <div class="symbol">✦</div>
+    <h2>Men bilan kinoga borasizmi?</h2>
+    <p>Yaxshi film, qulay muhit va yoqimli suhbat. Menimcha, oqshomni boshlash uchun ajoyib reja.</p>
+    <div class="btns">
+      <button class="primary" onclick="go(4)">Ha, boraman</button>
+      <button class="secondary" id="noBtn" onclick="nope()" onmouseenter="nope()" ontouchstart="nope()">Yo‘q</button>
+    </div>
+    <div class="tiny" id="hint">Javobingizni kutaman.</div>
+    <div class="foot">03 / 08</div>
+  </section>
+
+  <section class="scene" id="s4">
+    <p class="kicker">Sahifa 04 · Davomi bor</p>
+    <div class="symbol">✧　♥　✧</div>
+    <h2>Faqat kino bilan tugamaydi...</h2>
+    <p>Film tugagach, shoshilmaymiz. Biror shinam joyda kechki ovqat qilib, bemalol suhbatlashsak-chi?</p>
+    <div class="btns"><button class="primary" onclick="go(5)">Rejani ko‘rish</button></div>
+    <div class="foot">04 / 08</div>
+  </section>
+
+  <section class="scene" id="s5">
+    <p class="kicker">Sahifa 05 · Bizning reja</p>
+    <h2>Bir oqshom uchun</h2>
+    <div class="info"><div class="label">BIRINCHI</div><div class="value">Birgalikda kino tomosha qilamiz.</div></div>
+    <div class="info"><div class="label">KEYIN</div><div class="value">Kechki ovqat va yoqimli suhbat.</div></div>
+    <div class="info"><div class="label">ENG MUHIMI</div><div class="value">Oqshomni chiroyli xotiraga aylantirish.</div></div>
+    <div class="btns"><button class="primary" onclick="go(6)">Sana va manzil</button></div>
+    <div class="foot">05 / 08</div>
+  </section>
+
+  <section class="scene" id="s6">
+    <p class="kicker">Sahifa 06 · Belgilab qo‘ying</p>
+    <h2>Uchrashuv tafsilotlari</h2>
+    <div class="info"><div class="label">SANA</div><div class="value">18-oktabr, 2026-yil · Yakshanba</div></div>
+    <div class="info"><div class="label">VAQT</div><div class="value">19:00</div></div>
+    <div class="info"><div class="label">MANZIL</div><div class="value">Tashkent City Mall, Toshkent</div></div>
+    <div class="info"><div class="label">REJA</div><div class="value">Kino, so‘ng kechki ovqat.</div></div>
+    <div class="tiny">Film seansi va restoran nomini birga tanlaymiz.</div>
+    <div class="btns"><button class="primary" onclick="go(7)">Yana bir sahifa</button></div>
+    <div class="foot">06 / 08</div>
+  </section>
+
+  <section class="scene" id="s7">
+    <p class="kicker">Sahifa 07 · Kichik iltimos</p>
+    <div class="symbol">✦　<span class="heart">♥</span>　✦</div>
+    <h2>Shunchaki o‘zingiz bo‘ling.</h2>
+    <p>Maxsus tayyorgarlik ham, murakkab reja ham kerak emas. Vaqtni yoqimli o‘tkazsak — shu yetarli.</p>
+    <div class="btns"><button class="primary" onclick="go(8)">Oxirgi sahifa</button></div>
+    <div class="foot">07 / 08</div>
+  </section>
+
+  <section class="scene" id="s8">
+    <p class="kicker">Sahifa 08 · Sizga atalgan</p>
+    <div class="symbol">✦　✧　♥　✧　✦</div>
+    <h2>Miss Latofat,</h2>
+    <p>18-oktabr kuni soat 19:00 da Tashkent City Mall’da uchrashamizmi? Avval kino, keyin kechki ovqat. Qolganini birga rejalashtiramiz.</p>
+    <div class="btns"><button class="primary" onclick="yesAnswer()">Ha, kelishdik!</button><button class="secondary" onclick="restart()">Boshidan ko‘rish</button></div>
+    <div class="tiny" id="finalNote">Javobingiz qanday bo‘lishidan qat’i nazar, taklifim samimiy.</div>
+    <div class="foot">08 / 08</div>
+  </section>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</main>
+<script>
+let noCount=0;
+function updateProgress(n){const p=document.getElementById('progress');p.innerHTML='';for(let i=1;i<=8;i++){const d=document.createElement('span');d.className='dot'+(i===n?' on':'');p.appendChild(d)}}
+function go(n){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));document.getElementById('s'+n).classList.add('active');updateProgress(n);window.scrollTo({top:0,behavior:'smooth'});}
+function nope(){
+  noCount++;
+  const b=document.getElementById('noBtn'), hint=document.getElementById('hint');
+  const msgs=['Bu tugma biroz uyatchan ekan. Yana urinib ko‘ring.','Voy, yana qochib ketdi!','Balki “Ha”ni tanlarsiz?'];
+  hint.textContent=msgs[Math.min(noCount-1,msgs.length-1)];
+  b.style.transform=`translate(${Math.random()*100-50}px,${Math.random()*45-22}px)`;
+  if(noCount>=4){b.textContent='O‘ylab ko‘raman';b.style.transform='none';b.onclick=()=>{hint.textContent='Albatta, bemalol o‘ylab ko‘ring. Javobingizni hurmat qilaman.'};b.onmouseenter=null;b.ontouchstart=null;}
+}
+function yesAnswer(){document.getElementById('finalNote').textContent='Unda kelishdik! 18-oktabr kuni soat 19:00 da ko‘rishamiz.';}
+function restart(){noCount=0;const b=document.getElementById('noBtn');if(b){b.textContent='Yo‘q';b.style.transform='none';b.onclick=nope;b.onmouseenter=nope;b.ontouchstart=nope;}const h=document.getElementById('hint');if(h)h.textContent='Javobingizni kutaman.';go(1);}
+updateProgress(1);
+</script>
+</body>
+</html>
